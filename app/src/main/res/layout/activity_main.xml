@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#16171d"
+    >
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    android:background="#16171d"
+    android:orientation="vertical"
+    android:isScrollContainer="true"
+    tools:context=".MainActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#16171d"
+        android:elevation="4dp"
+        app:titleTextColor="#FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Calculator"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Created by 22L-6671, M. Nouman Iqbal"
+            android:textColor="#919191"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginEnd="16dp"/>
+
+    </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/screen_background"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineAmbientShadowColor="#00FFFFFF"
+            android:padding="16dp"
+            android:text="Start Calculating"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:fontFamily="monospace"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/screen_input"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineAmbientShadowColor="#00FFFFFF"
+            android:paddingTop="16dp"
+            android:paddingLeft="10dp"
+            android:text="|"
+            android:textColor="@color/material_dynamic_neutral20"
+            android:fontFamily="monospace"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/cursor_display"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineAmbientShadowColor="#00FFFFFF"
+            android:padding="16dp"
+            android:text=""
+            android:textColor="@color/material_dynamic_neutral20"
+            android:fontFamily="monospace"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAlignment="textEnd"
+            android:id="@+id/screen_output"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:columnCount="6"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:textColor="@color/black"
+            android:backgroundTint="#f9c131"
+            android:text="SHIFT" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:backgroundTint="#7163b0"
+            android:text="ALPHA" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_left_arrow"
+            android:text="◀" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_right_arrow"
+            android:text="▶" />
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="MODE" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="2nd" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Solve" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="=" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="d/dx" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text=":" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="x!" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                    android:text="∑" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="⨅" />
+        </RelativeLayout>
+
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="CALC" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="dx" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="▲" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="▼" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_inverse"
+            android:text="x⁻¹" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+
+            android:text="Logₐx" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="mod" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="÷R" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="³√◼" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="x³" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="▀√◼" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="10ˣ" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="e▀" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_fancy_divide"
+            android:text="◼⁄◼" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_square_root"
+            android:text="√◼" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_square"
+            android:text="x²" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_pow"
+            android:text="x▀" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_log"
+            android:text="Log" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_ln"
+            android:text="Ln" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="∠" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="a" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="FACT" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="b" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Abs" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="c" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Sin⁻¹" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="d" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Cos⁻¹" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="e" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Tan⁻¹" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="f" />
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="(-)" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="ᵒ'&quot;" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="hyp" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_sin"
+            android:text="sin" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_cos"
+            android:text="cos" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_tan"
+            android:text="tan" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="STO" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="i" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="Cot" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="%" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="Cot⁻¹" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="," />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="x" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="aᵇ/c" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="y" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="M-" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="m" />
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="RCL" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="ENG" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_open_parenthesis"
+            android:text="(" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_close_parenthesis"
+            android:text=")" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:id="@+id/button_mode_scam"
+            android:text="s⇄d" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_main"
+            android:text="M+" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:columnCount="5"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="CONST" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="CONV" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Limit" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="∞" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_7"
+            android:text="7" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_8"
+            android:text="8" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_9"
+            android:text="9" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:backgroundTint="#e88e50"
+            android:textColor="@color/black"
+            android:id="@+id/button_delete"
+            android:text="DEL" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:backgroundTint="#e88e50"
+            android:textColor="@color/black"
+            android:id="@+id/button_clear"
+            android:text="AC" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="MATRIX" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="VECTOR" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="HELP" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="nPr" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="GCD" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="nCr" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="LCM" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_4"
+            android:text="4" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_5"
+            android:text="5" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_6"
+            android:text="6" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_multiply"
+            android:text="x" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_divide"
+            android:text="÷" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="STAT" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="CMPLX" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="DISTR" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Pol" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="Ceil" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="Rec" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="Floor" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_1"
+            android:text="1" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_2"
+            android:text="2" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_3"
+            android:text="3" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_add"
+            android:text="+" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_subtract"
+            android:text="-" />
+
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:textSize="10sp"
+                android:text="COPY" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:textSize="10sp"
+                android:text="PASTE" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:textSize="10sp"
+                android:text="Ran#" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:textSize="10sp"
+                android:text="RanInt" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text"
+                android:text="π" />
+
+            <TextView
+                style="@style/alpha_text"
+                android:text="e" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/alpha_text"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="false"
+                android:text="PreAns" />
+        </RelativeLayout>
+        <RelativeLayout
+            style="@style/label_parent_layout">
+            <TextView
+                style="@style/shifted_text_middle"
+                android:text="History" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_0"
+            android:text="0" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_dot"
+            android:text="." />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:text="Exp" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_ans"
+            android:text="Ans" />
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_calc_main"
+            android:id="@+id/button_evaluate"
+            android:text="=" />
+    </GridLayout>
+
+</LinearLayout>
+</ScrollView>

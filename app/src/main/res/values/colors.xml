@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="button_main">#DBDBDB</color>
+    <color name="button_main_highlight">#FFFFFF</color>
+    <color name="shift_button_">#f9c131</color>
+    <color name="shift_button_highlight_">#FFCE50</color>
+    <color name="neutral_top_button">#4e4b52</color>
+    <color name="neutral_bottom_button">#262930</color>
+</resources>
