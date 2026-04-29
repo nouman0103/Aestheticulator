@@ -17,7 +17,11 @@
 
 <div align="center">
 
-https://github.com/user-attachments/assets/calculator-preview.mp4
+
+
+https://github.com/user-attachments/assets/da8951ea-32ab-4c78-b705-6a3f8cb30e84
+
+
 
 > *Full walkthrough of the calculator's features — arithmetic, scientific functions, cursor navigation, and haptic feedback.*
 
